@@ -1,18 +1,15 @@
 #' Calculate the flow and returns the 
 #'
-#' The function calculates the bullish strength ,bearish stength (on Average) and returns.
-#' Basically it calulates the Average amount of bearish flow and average amount of bullish flow in a given 'n' terms.
+#' The function returns the difference of Highs and lows
+#' If Candle is Green (Closed above previous Close) - Difference is - ( Close minus trueLow)
+#' If Candle is Red   (Closed below previous Close) - Difference is - ( trueHigh minus Close)
+#' trueHigh - Max of CurrentHigh,PrevClose
+#' trueLow  - Min of CurrentLow, prevClose
 #' @param m - OHLC
-#' @param FUN - Which price is OHLC to be used for calculating. Default Cl. If 
-#' If Hi to be used, use FUN - Hi
 #' @return returns the bearishFlow,bullishFlow
 #' @author Siva Sunku
 #' @keywords flowDex
-#' @note
-#' @examples
-#' elderRay(m,n=13)
 #' @export
-#' 
 flow <- function(m){
   GREEN <- 1
   RED <- -1
@@ -32,12 +29,15 @@ flow <- function(m){
   return(m[,c("color","flow")])
 }
 
-#' This function returns the flowDex of bulls & bears on a window n
+#' Calculates the sum/mean of flow and returns the value
 #'
-#' The function calculates the bullish strength ,bearish stength (on Average) and returns.
-#' Basically it calulates the Average amount of bearish flow and average amount of bullish flow in a given 'n' terms.
+#' @param m - xts
+#' @param fFUN - function to be applied. like sum/mean
+#' @return returns the bearishFlow,bullishFlow
+#' @author Siva Sunku
+#' @keywords flowDex
 #' @export
-flowDex <- function(m){
+flowDex <- function(m,fFUN = mean){
   GREEN <-  1
   RED   <- -1
 
@@ -47,8 +47,8 @@ flowDex <- function(m){
   
   d <- m[,c("color","flow")]
   a <- as.numeric(ifelse(d$color == GREEN,d$flow,NA))
-  bullFlow <- mean(a,na.rm = TRUE)
+  bullFlow <- fFUN(a,na.rm = TRUE)
   b <- as.numeric(ifelse(d$color == RED,d$flow,NA))
-  bearFlow <- mean(b,na.rm = TRUE)
+  bearFlow <- fFUN(b,na.rm = TRUE)
   c("bullFlow" = bullFlow,"bearFlow" = bearFlow)
 }

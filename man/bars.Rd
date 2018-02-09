@@ -3,11 +3,11 @@
 \name{bar}
 \alias{bar}
 \alias{is.bar}
-\alias{is.pricehit.bar}
-\alias{is.pricexed.bar}
-\alias{isdoji.bar}
 \alias{isgreen.bar}
 \alias{isred.bar}
+\alias{isdoji.bar}
+\alias{is.pricehit.bar}
+\alias{is.pricexed.bar}
 \title{Bars - Functions related to all the bars/candles}
 \usage{
 bar(b)
@@ -72,4 +72,3 @@ if direction is - LONG/GREEN(1) - b closes > p , returns TRUE
 Siva Sunku
 }
 \keyword{bars}
-

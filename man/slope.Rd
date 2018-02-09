@@ -24,4 +24,3 @@ slope(n=c(10,20,30))
 Siva Sunku
 }
 \keyword{slope}
-

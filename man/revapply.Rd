@@ -20,4 +20,3 @@ higher ordered xts distributed across to all lower ordered ones. only index of l
 - Apply higher interval values to lower values. e.g. If weekly indicator need to be applied to all daily rows for that
 particular week.
 }
-

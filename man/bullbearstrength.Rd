@@ -21,4 +21,3 @@ The function returns the bull/bear strength (zero if negative)
 Siva Sunku
 }
 \keyword{bullbearstrength}
-

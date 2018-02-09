@@ -24,4 +24,3 @@ pivots(xts, type="woodies")
 Siva Sunku
 }
 \keyword{pivots}
-

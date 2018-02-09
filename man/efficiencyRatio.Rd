@@ -28,4 +28,3 @@ Siva Sunku
 }
 \keyword{Ratio}
 \keyword{efficiency}
-

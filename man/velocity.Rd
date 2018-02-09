@@ -24,4 +24,3 @@ velocity(n,pct = TRUE)
 Siva Sunku
 }
 \keyword{velocity}
-
